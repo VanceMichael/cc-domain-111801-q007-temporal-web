@@ -1,0 +1,55 @@
+{
+  "scope": "shop-a",
+  "resources": {
+    "/web/current": {
+      "body": {
+        "site": "shop-a",
+        "pages": [
+          {
+            "id": "PAGE1",
+            "href": "/web/current/records/PAGE1"
+          }
+        ]
+      }
+    },
+    "/web/current/records/PAGE1": {
+      "body": {
+        "page": "PAGE1",
+        "site": "shop-a",
+        "url": "https://shop.invalid/terms",
+        "observedAt": "2026-11-01T09:00:00Z",
+        "title": "运输说明",
+        "body": "本地区运费以订单确认页为准"
+      }
+    },
+    "/web/current/relations/PAGE1": {
+      "body": {
+        "period": [
+          "2026-10-01",
+          "2026-11-01"
+        ],
+        "archive": "/archive/timegate",
+        "references": [
+          {
+            "page": "zones",
+            "edition": "v4"
+          }
+        ]
+      }
+    }
+  },
+  "portal": {
+    "identity": "page",
+    "records": {
+      "PAGE1": {
+        "page": "PAGE1",
+        "site": "shop-a",
+        "url": "https://shop.invalid/terms",
+        "observedAt": "2026-11-01T09:00:00Z",
+        "title": "运输说明",
+        "body": "本地区运费以订单确认页为准"
+      }
+    },
+    "version": 1
+  }
+}

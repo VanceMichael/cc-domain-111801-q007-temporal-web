@@ -1,0 +1,16 @@
+{
+  "name": "temporal-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "历史贸易网页的时点协商与引用资料成套采集",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test --test-concurrency=1",
+    "demo": "node scripts/demo.mjs",
+    "start": "node scripts/start.mjs"
+  }
+}
