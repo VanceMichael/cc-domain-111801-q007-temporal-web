@@ -1,6 +1,9 @@
 import { text } from './validation.mjs';
 
 export const collectionPath = "/web/current";
+export function relationsPath(identity) {
+  return collectionPath + '/relations/' + encodeURIComponent(identity);
+}
 export async function browse(client) {
   const document = await client.get(collectionPath);
   const raw = document.raw;
@@ -17,4 +20,12 @@ export async function retrieve(client, reference) {
   if (document.raw.page !== reference.identity) throw new Error('原文身份与目录引用不符');
   if (document.raw.site !== reference.context) throw new Error('原文上下文与目录不符');
   return document;
+}
+export async function retrieveRelations(client, identity) {
+  const document = await client.get(relationsPath(identity));
+  // 关联资料是来源对发布周期、归档位置与引用关系的原始声明，交由领域层解释。
+  if (!document.raw || typeof document.raw !== 'object' || Array.isArray(document.raw)) {
+    throw new Error('关联资料结构无效');
+  }
+  return document.raw;
 }

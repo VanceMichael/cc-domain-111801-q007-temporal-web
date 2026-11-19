@@ -11,6 +11,7 @@
     "build": "node scripts/build.mjs",
     "test": "node --test --test-concurrency=1",
     "demo": "node scripts/demo.mjs",
+    "demo:history": "node scripts/demo-history.mjs",
     "start": "node scripts/start.mjs"
   }
 }

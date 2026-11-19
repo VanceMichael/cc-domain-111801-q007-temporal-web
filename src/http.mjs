@@ -27,8 +27,14 @@ export class SourceClient {
         }
         const bytes = Buffer.concat(parts);
         const raw = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
-        return { raw, bytes, location: url.href, mediaType: response.headers.get('content-type') ?? '', observedAt: new Date().toISOString() };
+        const retrievedAt = new Date().toISOString();
+        // retrievedAt 是本次实际取得原文的时间；observedAt 作为旧字段别名保留，
+        // 页面自身声明的历史观察时刻只以正文中的 observedAt 字段为准。
+        return { raw, bytes, location: url.href, mediaType: response.headers.get('content-type') ?? '', observedAt: retrievedAt, retrievedAt };
       } catch (error) {
+        if (error?.cause?.message === 'unexpected redirect') {
+          throw new SourceError('来源发生重定向，当前重定向不构成历史身份依据', 302);
+        }
         const retryable = !(error instanceof SourceError) || error.status === 429 || error.status >= 500;
         if (!retryable || attempt + 1 >= this.attempts) throw error;
       }
