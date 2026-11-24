@@ -38,6 +38,83 @@
       }
     }
   },
+  "archives": {
+    "alpha": {
+      "basePath": "/archive/timegate",
+      "identity": "archive-alpha",
+      "versions": {
+        "PAGE1": [
+          {
+            "observedAt": "2026-10-05T09:00:00Z",
+            "period": ["2026-10-01", "2026-11-01"],
+            "record": {
+              "page": "PAGE1",
+              "site": "shop-a",
+              "url": "https://shop.invalid/terms",
+              "observedAt": "2026-10-05T09:00:00Z",
+              "title": "运输说明",
+              "body": "十月第一版：本地区运费以订单确认页为准"
+            },
+            "references": [
+              { "page": "zones", "edition": "v3" }
+            ]
+          },
+          {
+            "observedAt": "2026-10-20T09:00:00Z",
+            "period": ["2026-10-01", "2026-11-01"],
+            "record": {
+              "page": "PAGE1",
+              "site": "shop-a",
+              "url": "https://shop.invalid/terms",
+              "observedAt": "2026-10-20T09:00:00Z",
+              "title": "运输说明",
+              "body": "十月第二版：本地区运费以地区附表为准"
+            },
+            "references": [
+              { "page": "zones", "edition": "v4" }
+            ]
+          }
+        ]
+      },
+      "editions": {
+        "zones": {
+          "v3": {
+            "observedAt": "2026-10-02T09:05:00Z",
+            "record": {
+              "page": "zones",
+              "site": "shop-a",
+              "url": "https://shop.invalid/zones/v3",
+              "observedAt": "2026-10-02T09:05:00Z",
+              "title": "地区附表",
+              "body": "v3：一区 5.00，二区 8.00"
+            }
+          },
+          "v4": {
+            "observedAt": "2026-10-18T09:05:00Z",
+            "record": {
+              "page": "zones",
+              "site": "shop-a",
+              "url": "https://shop.invalid/zones/v4",
+              "observedAt": "2026-10-18T09:05:00Z",
+              "title": "地区附表",
+              "body": "v4：一区 6.00，二区 8.00"
+            }
+          },
+          "v5": {
+            "observedAt": "2026-10-28T09:05:00Z",
+            "record": {
+              "page": "zones",
+              "site": "shop-a",
+              "url": "https://shop.invalid/zones/v5",
+              "observedAt": "2026-10-28T09:05:00Z",
+              "title": "地区附表",
+              "body": "v5：一区 6.50，二区 9.00"
+            }
+          }
+        }
+      }
+    }
+  },
   "portal": {
     "identity": "page",
     "records": {
